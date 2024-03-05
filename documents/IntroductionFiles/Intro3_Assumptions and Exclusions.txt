@@ -1,0 +1,3 @@
+It is assumed that if the validation tests run without error and pass, then with MATLAB and associated toolboxes have been properly installed.
+
+This validation applies to the installed products and versions listed under the 'Products Tested' section of this document.

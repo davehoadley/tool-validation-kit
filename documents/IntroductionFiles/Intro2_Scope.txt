@@ -1,0 +1,1 @@
+This report applies to the validation of the MATLAB Validation Test Suite. The scope of this Tool Validation Report is limited to MATLAB (MathWorks Inc., Natick, MA) and the testing to demonstrate the Tool Validation Planning Kit.

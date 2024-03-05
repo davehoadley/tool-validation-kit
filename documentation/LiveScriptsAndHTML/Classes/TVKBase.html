@@ -1,0 +1,271 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="../helpwin.css"><script type="text/javascript" src="https://www.mathworks.com/help/releases/R2022a/includes/product/scripts/jquery/jquery-latest.js"></script><script type="text/javascript" src="https://www.mathworks.com/help/releases/R2022a/includes/shared/scripts/helpservices.js"></script><title>tvk.TVKBase - MATLAB File Help</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         
+      </table>
+      <div class="title">tvk.TVKBase</div>
+      <div class="helptext"><pre><!--helptext --> <span class="helptopic">TVKBase</span> Class to handle running the tool validation kit
+ 
+  <span class="helptopic">tvk.TVKBase</span> properties:
+ 
+    <a href="matlab:helpwin tvk.TVKBase/TestFolder">TestFolder</a>              - test folder location
+    <a href="matlab:helpwin tvk.TVKBase/EnableCustomReportGen">EnableCustomReportGen</a>   - flag to set custom report generation
+    <a href="matlab:helpwin tvk.TVKBase/ReportFile">ReportFile</a>              - generated report file name
+    <a href="matlab:helpwin tvk.TVKBase/ResultsFolder">ResultsFolder</a>           - result folder location
+    <a href="matlab:helpwin tvk.TVKBase/TestTable">TestTable</a>               - high-level test table (Dependent)
+    <a href="matlab:helpwin tvk.TVKBase/AllTestFiles">AllTestFiles</a>            - list of all test files (Read-Only)
+    <a href="matlab:helpwin tvk.TVKBase/SelectedTestFiles">SelectedTestFiles</a>       - list of selected test files (Read-Only)
+    <a href="matlab:helpwin tvk.TVKBase/ResultTable">ResultTable</a>             - test suite results table after test execution (Read-Only)
+    <a href="matlab:helpwin tvk.TVKBase/ProductsTested">ProductsTested</a>          - table of all products tested (Read-Only)
+    <a href="matlab:helpwin tvk.TVKBase/DetailedTestTable">DetailedTestTable</a>       - detailed list of all test files in test table (Read-Only)
+ 
+  <span class="helptopic">tvk.TVKBase</span> methods:
+ 
+    <a href="matlab:helpwin tvk.TVKBase/runTests">runTests</a>                - generate test suite and run selected tests
+    <a href="matlab:helpwin tvk.TVKBase/generateReport">generateReport</a>          - generate report after test suite is run
+    <a href="matlab:helpwin tvk.TVKBase/selectTests">selectTests</a>             - select specific tests from test table
+    <a href="matlab:helpwin tvk.TVKBase/getDetailedTestTable">getDetailedTestTable</a>    - generate detailed test table from test suite
+    <a href="matlab:helpwin tvk.TVKBase/createTestSuite">createTestSuite</a>         - create test suite from test list
+ 
+  syntax:
+ 
+    tvkSession = <span class="helptopic">tvk.TVKBase</span>(testFolder, reportFolder);
+ 
+    MathWorks Consulting
+    Copyright 2022 The MathWorks Inc.</pre></div><!--after help -->
+      <!--Class-->
+      <div class="sectiontitle">Class Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Superclasses</td>
+            <td><a href="matlab:helpwin('handle')">handle</a></td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Construct on load</td>
+            <td>false</td>
+         </tr>
+      </table>
+      <!--Constructors-->
+      <div class="sectiontitle"><a name="constructors"></a>Constructor Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.TVKBase')">TVKBase</a></td>
+            <td class="m-help">TVKAPP Construct an instance of this class&nbsp;</td>
+         </tr>
+      </table>
+      <!--Properties-->
+      <div class="sectiontitle"><a name="properties"></a>Property Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.AllTestFiles')">AllTestFiles</a></td>
+            <td class="m-help">List of all test files&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.DetailedTestTable')">DetailedTestTable</a></td>
+            <td class="m-help">Detailed list of all test files in test table&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.EnableCustomReportGen')">EnableCustomReportGen</a></td>
+            <td class="m-help">Flag to set custom report generation&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ProductsTested')">ProductsTested</a></td>
+            <td class="m-help">Table of all products tested&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ReportFile')">ReportFile</a></td>
+            <td class="m-help">Generated report file name&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ResultTable')">ResultTable</a></td>
+            <td class="m-help">Test suite results table after test execution&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ResultsFolder')">ResultsFolder</a></td>
+            <td class="m-help">Result folder location&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.SelectedTestFiles')">SelectedTestFiles</a></td>
+            <td class="m-help">List of selected test files&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.TestFolder')">TestFolder</a></td>
+            <td class="m-help">Test folder location&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.TestTable')">TestTable</a></td>
+            <td class="m-help">High-level test table&nbsp;</td>
+         </tr>
+      </table>
+      <!--Methods-->
+      <div class="sectiontitle"><a name="methods"></a>Method Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.addlistener')">addlistener</a></td>
+            <td class="m-help">Add listener for event.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.createTestSuite')">createTestSuite</a></td>
+            <td class="m-help">Create test suite from test list&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.delete')">delete</a></td>
+            <td class="m-help">Delete a handle object.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.eq')">eq</a></td>
+            <td class="m-help">== (EQ)   Test handle equality.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.findobj')">findobj</a></td>
+            <td class="m-help">Find objects matching specified conditions.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.findprop')">findprop</a></td>
+            <td class="m-help">Find property of MATLAB handle object.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ge')">ge</a></td>
+            <td class="m-help">&gt;= (GE)   Greater than or equal relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.generateReport')">generateReport</a></td>
+            <td class="m-help">Generate report after test suite is run&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.getDetailedTestTable')">getDetailedTestTable</a></td>
+            <td class="m-help">Generate detailed test table from test suite&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.gt')">gt</a></td>
+            <td class="m-help">&gt; (GT)   Greater than relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">Sealed 
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.isvalid')">isvalid</a></td>
+            <td class="m-help">Test handle validity.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.le')">le</a></td>
+            <td class="m-help">&lt;= (LE)   Less than or equal relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.listener')">listener</a></td>
+            <td class="m-help">Add listener for event without binding the listener to the source object.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.lt')">lt</a></td>
+            <td class="m-help">&lt; (LT)   Less than relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ne')">ne</a></td>
+            <td class="m-help">~= (NE)   Not equal relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.notify')">notify</a></td>
+            <td class="m-help">Notify listeners of event.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.runTests')">runTests</a></td>
+            <td class="m-help">Generate test suite and run selected tests&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.selectTests')">selectTests</a></td>
+            <td class="m-help">Select specific tests from test table&nbsp;</td>
+         </tr>
+      </table>
+      <!--Events-->
+      <div class="sectiontitle"><a name="events"></a>Event Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="name"><a href="matlab:helpwin('tvk.TVKBase.ObjectBeingDestroyed')">ObjectBeingDestroyed</a></td>
+            <td class="m-help">Notifies listeners that a particular object has been destroyed.&nbsp;</td>
+         </tr>
+      </table>
+   </body>
+</html>

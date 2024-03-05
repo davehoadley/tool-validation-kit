@@ -1,0 +1,3 @@
+This tool validation report summarizes the results obtained during the execution of the MATLAB Tool Validation Test Suite, for the validation of MATLAB and associated toolboxes. This summary report documents that the MATLAB performed in accordance with its intended use as indicated in the MATLAB Tool Validation Plan.
+
+All sections of the Tool Validation Plan for MATLAB Test Suite were executed and successfully completed. The MathWorks Inc., Natick, MA, MATLAB Tool Validation Test Suite functioned in accordance with the approved System Specifications and adhered to site specific standards to ensure system specifications. The Example Validation spreadsheet is considered qualified and can be used for its intended use.

@@ -1,0 +1,224 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration file="C:\projects\TVKMain\toolvalidationkit\release\Tool Validation Kit.prj" location="C:\projects\TVKMain\toolvalidationkit\release" name="Tool Validation Kit" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>Tool Validation Kit</param.appname>
+    <param.authnamewatermark>MathWorks Consulting</param.authnamewatermark>
+    <param.email />
+    <param.company>MathWorks, Inc.</param.company>
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.output>${PROJECT_ROOT}\Tool Validation Kit.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>266fc400-0ecc-42c5-ad93-c19364dbaf03</param.guid>
+    <param.exclude.filters>% List files contained in your toolbox folder that you would like to exclude
+% from packaging.  Excludes should be listed relative to the toolbox folder.
+% Some examples of how to specify excludes are provided below:
+%
+% A single file in the toolbox folder:
+% .svn
+%
+% A single file in a subfolder of the toolbox folder:
+% example/.svn
+%
+% All files in a subfolder of the toolbox folder:
+% example/*
+%
+% All files of a certain name in all subfolders of the toolbox folder:
+% **/.svn
+%
+% All files matching a pattern in all subfolders of the toolbox folder:
+% **/*.bak
+%
+
+.git
+results
+sandbox
+UnitTestFolder
+UnitTestFolder.zip
+.gitlab-ci.yml
+documents/DependencyAnalysis_FunctionList.xlsx
+documents/MATLAB Tool Validation Suite User Guide.docx
+documents/Tool Validation Kit App Guide.docx
+README.md
+README.pdf
+.gitignore
+.gitattributes
+test
+resources</param.exclude.filters>
+    <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
+    <param.examples />
+    <param.demosxml />
+    <param.apps>
+      <file>${PROJECT_ROOT}\Tool Validation Kit App.mlappinstall</file>
+    </param.apps>
+    <param.registered.apps />
+    <param.docs>C:\projects\TVKMain\toolvalidationkit\documentation\info.xml</param.docs>
+    <param.getting.started.guide />
+    <param.matlabpath.excludes>
+      <item>/UnitTestFolder</item>
+      <item>/UnitTestFolder/Base</item>
+      <item>/UnitTestFolder/Base/ArithmeticTest</item>
+      <item>/UnitTestFolder/Base/ComputationalGeometryTests</item>
+      <item>/UnitTestFolder/Base/ControlFlow</item>
+      <item>/UnitTestFolder/Base/Datastore</item>
+      <item>/UnitTestFolder/Base/FileIO</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/EvaluateSemanticSegmentationTests</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/GroundTruthTests</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/GroundTruthTests/roadSequence</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/images</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/labels</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/labels_complemented</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/rgb_labels</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/triangles_and_circles</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/triangles_and_circles_labels</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/vehicles</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/vehicles/cars</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/vehicles/planes</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/PixelDatastoreTests/small_test_set/volumeLabels</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/SemanticSegTests</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/SemanticSegTests/multiSpectralImages</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/SemanticSegTests/triangle3D</item>
+      <item>/UnitTestFolder/ComputerVisionToolbox/SemanticSegTests/triangleImages</item>
+      <item>/UnitTestFolder/DeepLearningToolbox</item>
+      <item>/UnitTestFolder/DeepLearningToolbox/LayerGraphTests</item>
+      <item>/UnitTestFolder/DeepLearningToolbox/TrainNetworkTests</item>
+      <item>/UnitTestFolder/DeepLearningToolbox/TrainingOptionsTests</item>
+      <item>/UnitTestFolder/ImageProcessingToolbox</item>
+      <item>/UnitTestFolder/ImageProcessingToolbox/ImageProcessingTest</item>
+      <item>/UnitTestFolder/ImageProcessingToolbox/ImageProcessingTest/dog</item>
+      <item>/UnitTestFolder/SignalProcessingToolbox</item>
+      <item>/UnitTestFolder/StatisticsMachineLearningToolbox</item>
+      <item>/UnitTestFolder/StatisticsMachineLearningToolbox/helper</item>
+      <item>/test</item>
+      <item>/test/app</item>
+      <item>/test/unit</item>
+      <item>/test/utilities</item>
+      <item>/sandbox/snuggeha</item>
+      <item>/sandbox</item>
+    </param.matlabpath.excludes>
+    <param.javaclasspath.excludes />
+    <param.exported.on.package>true</param.exported.on.package>
+    <param.required.addons>
+      <requiredaddons />
+    </param.required.addons>
+    <param.matlab.project.id />
+    <param.matlab.project.name />
+    <param.release.start>R2023b</param.release.start>
+    <param.release.end>R2023b</param.release.end>
+    <param.release.current.only>true</param.release.current.only>
+    <param.compatiblity.windows>true</param.compatiblity.windows>
+    <param.compatiblity.macos>true</param.compatiblity.macos>
+    <param.compatiblity.linux>true</param.compatiblity.linux>
+    <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
+    <unset>
+      <param.email />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.pcodedmfiles />
+      <param.examples />
+      <param.demosxml />
+      <param.registered.apps />
+      <param.getting.started.guide />
+      <param.javaclasspath.excludes />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
+      <param.compatiblity.windows />
+      <param.compatiblity.macos />
+      <param.compatiblity.linux />
+      <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
+    </unset>
+    <fileset.rootdir>
+      <file>C:\projects\TVKMain\toolvalidationkit</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>C:\projects\TVKMain\toolvalidationkit\app</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\demos</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\documentation</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\documents</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\icons</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\license.txt</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\MATLAB_Tool_Validation_Report_20240304T152955.docx</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\README.asv</file>
+      <file>${PROJECT_ROOT}</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\SECURITY.md</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}" name="Tool Validation Kit.mltbx" optional="false">C:\projects\TVKMain\toolvalidationkit\release\Tool Validation Kit.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2023b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

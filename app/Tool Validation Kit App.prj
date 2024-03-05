@@ -1,0 +1,106 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="3847886188" file="C:\projects\TVKMain\toolvalidationkit\app\Tool Validation Kit App.prj" location="C:\projects\TVKMain\toolvalidationkit\app" name="Tool Validation Kit App" target="target.mlapps" target-name="Package App">
+    <param.appname>Tool Validation Kit App</param.appname>
+    <param.authnamewatermark>MathWorks Consulting</param.authnamewatermark>
+    <param.email />
+    <param.company>MathWorks, Inc.</param.company>
+    <param.icon>${PROJECT_ROOT}\Tool Validation Kit App_resources\icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\Tool Validation Kit App_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\Tool Validation Kit App_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\Tool Validation Kit App_resources\icon_16.png</file>
+    </param.icons>
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>${PROJECT_ROOT}</param.output>
+    <param.guid>22279144-5ed8-4032-b62b-bf792b595b21</param.guid>
+    <unset>
+      <param.email />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\runToolValidationKitApp.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\TVKApp.mlapp</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source\+tvk\@TVKBase\genCustomTVKReport.m</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source\+tvk\@TVKBase\TVKBase.m</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source\utilities\createNewTest.m</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source\utilities\replaceClassNameWithFileName.m</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source\utilities\TVKDiagnosticRecorderPlugin.m</file>
+    </fileset.depfun>
+    <fileset.resources>
+      <file>C:\projects\TVKMain\toolvalidationkit\documents\IntroductionFiles</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\documents\UserResources</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\icons\09_MW_logo_RGB.jpg</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\icons\icon_16.png</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\icons\icon_24.png</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\icons\icon_48.png</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\icons\logopic.png</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\source\utilities\TemplateTest.m</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\projects\TVKMain\toolvalidationkit" name="app" optional="false">C:\projects\TVKMain\toolvalidationkit\app</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2023b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

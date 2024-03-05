@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022a"><title>Getting Started: Tool Validation Kit CLI</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin-bottom: 20px; padding-bottom: 4px;  }
+.S2 { margin: 0px; padding: 10px 0px 10px 5px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 700; text-align: start;  }
+.S3 { margin: -1px 0px 0px; padding: 10px 0px 10px 7px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: start;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S6 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 1px solid rgb(191, 191, 191); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(191, 191, 191); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 1px solid rgb(191, 191, 191); border-bottom: 1px solid rgb(191, 191, 191); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0' id = 'T_74A6238E' ><span>Getting Started: Tool Validation Kit CLI</span></h1><div  class = 'S1'><div  class = 'S2'><span style=' font-weight: bold;'>Table of Contents</span></div><div  class = 'S3'><a href = "#H_B7BC6FBD"><span>Select test and report folder
+</span></a><a href = "#H_122D4191"><span>Create tvk object and enable custom report generation
+</span></a><a href = "#H_5DA5B4C4"><span>Examine high level and detailed test tables
+</span></a><a href = "#H_7EECEE47"><span>Select tests to run
+</span></a><a href = "#H_A0A54B42"><span>Run selected tests
+</span></a><a href = "#H_E86BB510"><span>Generate custom report
+</span></a><a href = "#H_4DBA182D"><span>Create new tests
+</span></a><a href = "#H_B8792113"><span>Run TVK App UI</span></a></div></div><div  class = 'S4'><span></span></div><h2  class = 'S5' id = 'H_B7BC6FBD' ><span>Select test and report folder</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >cp = currentProject;</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >testFolder = fullfile(cp.RootFolder, </span><span style="color: rgb(160, 32, 240);">"UnitTestFolder"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span style="color: rgb(34, 139, 34);">% Unzip zipped unit test folder</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span style="color: rgb(0, 0, 255);">if </span><span >~isfolder(testFolder)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    unzipFiles(fullfile(tvkAppRoot, </span><span style="color: rgb(160, 32, 240);">"UnitTestFolder.zip"</span><span >))</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >reportFolder = fullfile(cp.RootFolder, </span><span style="color: rgb(160, 32, 240);">"results"</span><span >);</span></span></div></div></div><h2  class = 'S5' id = 'H_122D4191' ><span>Create tvk object and enable custom report generation</span></h2><div  class = 'S4'><span>Create the tvk base instance and set custom report gen flag to true.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >obj = tvk.TVKBase(testFolder, reportFolder);</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >obj.EnableCustomReportGen = 1;</span></span></div></div></div><h2  class = 'S5' id = 'H_5DA5B4C4' ><span>Examine high level and detailed test tables</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >obj.TestTable</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >obj.DetailedTestTable</span></span></div></div></div><h2  class = 'S5' id = 'H_7EECEE47' ><span>Select tests to run</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >selectedTests = [</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(160, 32, 240);">"ImageProcessingTest"</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(160, 32, 240);">"SignalToolboxTests"</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(160, 32, 240);">"StatisticsMachineLearningTests"</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    ];</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >obj.selectTests(selectedTests);</span></span></div></div></div><h2  class = 'S5' id = 'H_A0A54B42' ><span>Run selected tests</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >obj.runTests();</span></span></div></div></div><h2  class = 'S5' id = 'H_E86BB510' ><span>Generate custom report</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >obj.generateReport();</span></span></div></div></div><h2  class = 'S5' id = 'H_4DBA182D' ><span>Create new tests</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >filename = </span><span style="color: rgb(160, 32, 240);">"AmazingTests.m"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >createNewTest(filename);</span></span></div></div></div><h2  class = 'S5' id = 'H_B8792113' ><span>Run TVK App UI</span></h2><div  class = 'S4'><span>Alternatively to running the tests and generating reports using the TVK CLI, you can perform the same operations using the UI.</span></div><div  class = 'S4'><span>Please follow the instructions in "Tool Validation Kit App Guide.pdf" to get started. You can find this document in the "Help" section of the app toolbar.</span></div><div  class = 'S4'><span>You can also launch the app in the Apps gallery of the MATLAB toolstrip once the Tool Validation Kit.mltbx toolbox file is installed.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >runToolValidationKitApp()</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Getting Started: Tool Validation Kit CLI
+%% 
+% 
+%% Select test and report folder
+
+cp = currentProject;
+testFolder = fullfile(cp.RootFolder, "UnitTestFolder");
+
+% Unzip zipped unit test folder
+if ~isfolder(testFolder)
+    unzipFiles(fullfile(tvkAppRoot, "UnitTestFolder.zip"))
+end
+
+reportFolder = fullfile(cp.RootFolder, "results");
+%% Create tvk object and enable custom report generation
+% Create the tvk base instance and set custom report gen flag to true.
+
+obj = tvk.TVKBase(testFolder, reportFolder);
+
+obj.EnableCustomReportGen = 1;
+%% Examine high level and detailed test tables
+
+obj.TestTable
+
+obj.DetailedTestTable
+%% Select tests to run
+
+selectedTests = [
+    "ImageProcessingTest"
+    "SignalToolboxTests"
+    "StatisticsMachineLearningTests"
+    ];
+
+obj.selectTests(selectedTests);
+%% Run selected tests
+
+obj.runTests();
+%% Generate custom report
+
+obj.generateReport();
+%% Create new tests
+
+filename = "AmazingTests.m";
+
+createNewTest(filename);
+%% Run TVK App UI
+% Alternatively to running the tests and generating reports using the TVK CLI, 
+% you can perform the same operations using the UI.
+% 
+% Please follow the instructions in "Tool Validation Kit App Guide.pdf" to get 
+% started. You can find this document in the "Help" section of the app toolbar.
+% 
+% You can also launch the app in the Apps gallery of the MATLAB toolstrip once 
+% the Tool Validation Kit.mltbx toolbox file is installed.
+
+runToolValidationKitApp()
+##### SOURCE END #####
+-->
+</div></body></html>
