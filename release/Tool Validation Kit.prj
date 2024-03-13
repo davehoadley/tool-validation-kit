@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="C:\projects\TVKMain\toolvalidationkit\release\Tool Validation Kit.prj" location="C:\projects\TVKMain\toolvalidationkit\release" name="Tool Validation Kit" target="target.toolbox" target-name="Package Toolbox">
+  <configuration file="C:\projects\tool-validation-kit\release\Tool Validation Kit.prj" location="C:\projects\tool-validation-kit\release" name="Tool Validation Kit" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>Tool Validation Kit</param.appname>
     <param.authnamewatermark>MathWorks Consulting</param.authnamewatermark>
     <param.email />
@@ -53,7 +53,7 @@ resources</param.exclude.filters>
     <param.examples />
     <param.demosxml />
     <param.apps>
-      <file>${PROJECT_ROOT}\Tool Validation Kit App.mlappinstall</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\release\Tool Validation Kit App.mlappinstall</file>
     </param.apps>
     <param.registered.apps />
     <param.docs>C:\projects\TVKMain\toolvalidationkit\documentation\info.xml</param.docs>
@@ -165,7 +165,7 @@ resources</param.exclude.filters>
       <file>C:\projects\TVKMain\toolvalidationkit\license.txt</file>
       <file>C:\projects\TVKMain\toolvalidationkit\MATLAB_Tool_Validation_Report_20240304T152955.docx</file>
       <file>C:\projects\TVKMain\toolvalidationkit\README.asv</file>
-      <file>${PROJECT_ROOT}</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\release</file>
       <file>C:\projects\TVKMain\toolvalidationkit\SECURITY.md</file>
       <file>C:\projects\TVKMain\toolvalidationkit\source</file>
     </fileset.rootfiles>
@@ -173,7 +173,7 @@ resources</param.exclude.filters>
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="Tool Validation Kit.mltbx" optional="false">C:\projects\TVKMain\toolvalidationkit\release\Tool Validation Kit.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="Tool Validation Kit.mltbx" optional="false">C:\projects\tool-validation-kit\release\Tool Validation Kit.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
