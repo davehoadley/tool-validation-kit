@@ -75,6 +75,9 @@ classdef ComputationalGeometryTests < matlab.unittest.TestCase
 
             diaryAct = fileread(stlNewFilePath);
 
+            % handle cross-platform CRLF issue
+            diaryAct = strrep(diaryAct, [char(13) newline], newline);
+
             testCase.verifyEqual(diaryAct, diaryExp, "Verify successful write of STL file from triangulation")
 
         end %function

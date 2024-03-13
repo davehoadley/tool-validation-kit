@@ -352,7 +352,7 @@ classdef FileIOTest < matlab.unittest.TestCase
             data = fread(fileID, [1 inf], '*char');
             fclose(fileID);
 
-            expectedData = ['Header line' char(13) newline 'Data line 112358' char(13) newline 'EOF'];
+            expectedData = ['Header line' newline 'Data line 112358' newline 'EOF'];
 
             testCase.verifyEqual(data, expectedData, 'verify fread reads a char array');
         end
