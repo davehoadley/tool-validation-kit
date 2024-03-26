@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2466319537" file="C:\projects\tool-validation-kit\app\Tool Validation Kit App.prj" location="C:\projects\tool-validation-kit\app" name="Tool Validation Kit App" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3995440563" file="C:\projects\tool-validation-kit\app\Tool Validation Kit App.prj" location="C:\projects\tool-validation-kit\app" name="Tool Validation Kit App" target="target.mlapps" target-name="Package App">
     <param.appname>Tool Validation Kit App</param.appname>
     <param.authnamewatermark>MathWorks Consulting</param.authnamewatermark>
     <param.email />
@@ -13,7 +13,7 @@
     <param.summary />
     <param.description />
     <param.screenshot />
-    <param.version>1.0</param.version>
+    <param.version>4.2.1</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -25,7 +25,6 @@
       <param.summary />
       <param.description />
       <param.screenshot />
-      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />

@@ -43,7 +43,7 @@ classdef ArithmeticTest < matlab.unittest.TestCase
                 [5, 7, 9.7; 4 - 0.5i, 104, 6.0016; 19, -82, 25], ...
                 'RelTol', eps, 'Matrix + matrix sum incorrect');
 
-            result = csvread('.\ArithmeticTest\AdditionTest.csv',2,0);
+            result = csvread(fullfile('.','ArithmeticTest','AdditionTest.csv'),2,0);
             A = result(:,1);
             B = result(:,2);
             C = result(:,3);
@@ -58,7 +58,7 @@ classdef ArithmeticTest < matlab.unittest.TestCase
             % rather than inlining a list of constants for testing basic
             % arithmetic, read in a user-defined data file with
             % user-defined expected results
-            result = csvread('.\ArithmeticTest\SubtractionTest.csv',2,0);
+            result = csvread(fullfile('.','ArithmeticTest','SubtractionTest.csv'),2,0);
             A = result(:,1);
             B = result(:,2);
             C = result(:,3);
@@ -72,7 +72,7 @@ classdef ArithmeticTest < matlab.unittest.TestCase
             % rather than inlining a list of constants for testing basic
             % arithmetic, read in a user-defined data file with
             % user-defined expected results
-            result = csvread('.\ArithmeticTest\MultiplicationTest.csv',2,0);
+            result = csvread(fullfile('.','ArithmeticTest','MultiplicationTest.csv'),2,0);
             A = result(:,1);
             B = result(:,2);
             C = result(:,3);
@@ -86,7 +86,7 @@ classdef ArithmeticTest < matlab.unittest.TestCase
             % rather than inlining a list of constants for testing basic
             % arithmetic, read in a user-defined data file with
             % user-defined expected results
-            result = csvread('.\ArithmeticTest\RightDivisionTest.csv',2,0);
+            result = csvread(fullfile('.','ArithmeticTest','RightDivisionTest.csv'),2,0);
             A = result(:,1);
             B = result(:,2);
             C = result(:,3);

@@ -326,7 +326,7 @@ classdef TVKBase < handle
     methods (Access = private)
         function getAllTestFiles(obj)
 
-            temp = dir(fullfile(obj.TestFolder,'**\*Test*.m'));
+            temp = dir(fullfile(obj.TestFolder,'**','*Test*.m'));
             temp([temp.isdir]) = [];
             obj.AllTestFiles = fullfile({temp.folder}',{temp.name}');
 

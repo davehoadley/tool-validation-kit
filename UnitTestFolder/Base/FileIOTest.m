@@ -15,8 +15,8 @@ classdef FileIOTest < matlab.unittest.TestCase
  
     methods(TestClassSetup)
         function openFiles(testCase)
-            testCase.hReadTextFile = fopen('.\FileIO\LowLevelAPIReadTest.txt','r');
-            testCase.hWriteTextFile = fopen('.\FileIO\LowLevelAPIWriteTest.txt','w+');
+            testCase.hReadTextFile = fopen(fullfile('.','FileIO','LowLevelAPIReadTest.txt'),'r');
+            testCase.hWriteTextFile = fopen(fullfile('.','FileIO','LowLevelAPIWriteTest.txt'),'w+');
         end
     end
     
@@ -37,16 +37,16 @@ classdef FileIOTest < matlab.unittest.TestCase
             try
                 % chosing to delete the file.  Comment out if you want to
                 % keep it
-                if exist('.\FileIO\textWriteTest.csv','file') == 2
-                    delete('.\FileIO\textWriteTest.csv');
+                if exist(fullfle('.','FileIO','textWriteTest.csv','file')) == 2
+                    delete(fullfle('.','FileIO','textWriteTest.csv','file'));
                 end
             catch
             end
             try
                 % chosing to delete the file.  Comment out if you want to
                 % keep it
-                if exist('.\FileIO\binaryWriteTest.mat','file') == 2
-                    delete('.\FileIO\binaryWriteTest.mat');
+                if exist(fullfile('.','FileIO','binaryWriteTest.mat','file')) == 2
+                    delete(fullfile('.','FileIO','binaryWriteTest.mat','file'));
                 end
             catch
             end
@@ -102,7 +102,7 @@ classdef FileIOTest < matlab.unittest.TestCase
             testCase.verifyEqual(testCase.hWriteTextFile, 4, ...
                 'File not opened for write access');
 
-            hBadFile = fopen('.\FileIO\ShouldNotExist.txt','r');
+            hBadFile = fopen(fullfile('.','FileIO','ShouldNotExist.txt','r'));
             testCase.verifyEqual(hBadFile, -1, ...
                 'Missing file not detected');
         end
@@ -129,13 +129,13 @@ classdef FileIOTest < matlab.unittest.TestCase
 
             % CSV file API
             try
-                csvread('.\FileIO\ReadTest.csv');
+                csvread(fullfile('.','FileIO','ReadTest.csv'));
             catch exc
                 testCase.verifyEqual(exc.identifier, 'MATLAB:textscan:handleErrorAndShowInfo', ...
                     'csvread bad range not detected');
             end
             
-            result = csvread('.\FileIO\ReadTest.csv',2,0,[2,0,15,3]);
+            result = csvread(fullfile('.','FileIO','ReadTest.csv'),2,0,[2,0,15,3]);
             expectedData = [0,1.01,6.775067751,10; ...
                 0.25,1.257403959,2.79798545,9; ...
                 0.5,1.489425539,1.356116084,8; ...
@@ -154,7 +154,7 @@ classdef FileIOTest < matlab.unittest.TestCase
             testCase.verifyEqual(result, expectedData, ...
                 'Data mismatch for csvread, numeric range');
 
-            result = csvread('.\FileIO\ReadTest.csv',2,0,'A3..D16');
+            result = csvread(fullfile('.','FileIO','ReadTest.csv'),2,0,'A3..D16');
             testCase.verifyEqual(result, expectedData, ...
                 'Data mismatch for csvread, string range');
         end
@@ -199,8 +199,8 @@ classdef FileIOTest < matlab.unittest.TestCase
 
             % CSV file API
             dataToWrite = [-1, 17.2, 1.0522E8; 0, 7.9999, 31];
-            csvwrite('.\FileIO\textWriteTest.csv',dataToWrite);
-            readBackData = csvread('.\FileIO\textWriteTest.csv');
+            csvwrite(fullfile('.','FileIO','textWriteTest.csv'),dataToWrite);
+            readBackData = csvread(fullfile('.','FileIO','textWriteTest.csv'));
             testCase.verifyEqual(dataToWrite, readBackData, ...
                     'csvwrite test failed');
         end
@@ -215,7 +215,7 @@ classdef FileIOTest < matlab.unittest.TestCase
             z_match = -33.00000008;  % scalar
             c_match = {t_match, w_match, z_match};  % cell array
             
-            load('.\FileIO\binaryReadTest');
+            load(fullfile('.','FileIO','binaryReadTest'));
             
             testCase.verifyEqual(w, w_match, ...
                 'Binary file read failed for string');
@@ -242,7 +242,7 @@ classdef FileIOTest < matlab.unittest.TestCase
             e = -1.5E-11;  % scalar
             f = {e, a, c};  % cell array
 
-            save('.\FileIO\binaryWriteTest','a','b','c','d','e','f');
+            save(fullfile('.','FileIO','binaryWriteTest'),'a','b','c','d','e','f');
 
             % store for expected results, then clear
             a_match = a;
@@ -259,7 +259,7 @@ classdef FileIOTest < matlab.unittest.TestCase
             clear('f');
             
             % re-load
-            load('.\FileIO\binaryWriteTest');
+            load(fullfile('.','FileIO','binaryWriteTest'));
             
             testCase.verifyEqual(a, a_match, ...
                 'Binary file read failed for string');
