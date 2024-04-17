@@ -10,7 +10,6 @@ jobs:
         with:
           lfs: 'true'
           submodules: 'recursive'
-          ssh-key: ${{ secrets.SSH_KEY }}
       - name: Run tests
         uses: matlab-actions/run-tests@v2
         with: 
