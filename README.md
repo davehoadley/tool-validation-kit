@@ -16,7 +16,7 @@ The goal of this work is to provide an example tool validation suite to for comm
 * Documentation such as MathWorks product quality statements and user guides
 * An optional installer to add the TVK to a MATLAB installation as an add-on toolbox
 
-This version works with MATLAB R2023b
+This version works with MATLAB R2024a
 
 ## Code Overview
 
