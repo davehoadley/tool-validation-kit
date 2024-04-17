@@ -9,6 +9,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
+        with:
+          products: Deep_Learning_Toolbox Computer_Vision_Toolbox Signal_Processing_Toolbox Image_Processing_Toolbox Statistics_and_Machine_Learning_Toolbox
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v2
         with:
