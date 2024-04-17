@@ -10,7 +10,7 @@ jobs:
         with:
           lfs: true
       - name: Checkout LFS objects
-        run: "C:\Program Files\Git\cmd\git.exe" lfs checkout
+        run: "C:\\Program Files\\Git\\cmd\\git.exe" lfs checkout
       - name: Run tests
         uses: matlab-actions/run-tests@v2
         with: 
