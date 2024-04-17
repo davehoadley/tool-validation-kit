@@ -200,14 +200,16 @@ for pp = 1:numel(uniqueparent)
             eventtitle.Bold = true;
             add(sec,eventtitle)
             
-            txt = splitlines(diagrec{dd}.FrameworkDiagnosticResults.DiagnosticText);
-            txt = txt(1:find(contains(txt,'Actual'))-1);
-            str = join(txt,newline);
-            diagcontent = Text(sprintf(str{:}));
-            diagcontent.FontFamilyName = 'Courier New';
-            diagcontent.WhiteSpace = 'preserve';
-            diagcontent.FontSize = '8pt';
-            add(sec,diagcontent)
+            if ~isempty(diagrec)
+                txt = splitlines(diagrec{dd}.FrameworkDiagnosticResults.DiagnosticText);
+                txt = txt(1:find(contains(txt,'Actual'))-1);
+                str = join(txt,newline);
+                diagcontent = Text(sprintf(str{:}));
+                diagcontent.FontFamilyName = 'Courier New';
+                diagcontent.WhiteSpace = 'preserve';
+                diagcontent.FontSize = '8pt';
+                add(sec,diagcontent)
+            end
 
             actval = thisdiag.ActualValue;
             if isa(actval,'cell')
