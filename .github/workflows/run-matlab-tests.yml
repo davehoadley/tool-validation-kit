@@ -17,5 +17,4 @@ jobs:
         uses: matlab-actions/run-tests@v2
         with:
           test-results-junit: test-results/results.xml
-          code-coverage-cobertura: code-coverage/coverage.xml
           logging-level: detailed
