@@ -77,6 +77,7 @@ classdef ComputationalGeometryTests < matlab.unittest.TestCase
 
             % handle cross-platform CRLF issue
             diaryAct = strrep(diaryAct, [char(13) newline], newline);
+            diaryExp = strrep(diaryExp, [char(13) newline], newline);
 
             testCase.verifyEqual(diaryAct, diaryExp, "Verify successful write of STL file from triangulation")
 
