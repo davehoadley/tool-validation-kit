@@ -7,8 +7,12 @@ on:
     - cron:  '24 16 * * 2' # schedule a weekly build to keep caches warm
 jobs:
   my-job:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-13, macos-14]
+        
     name: Run MATLAB Tests and Generate Artifacts
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -39,10 +43,11 @@ jobs:
       - name: Upload Test & coverage Results 
         uses: actions/upload-artifact@v4
         with:
-          name: test-and-coverage-results
+          name: Test and Coverage results for ${{ matrix.os }}
           path: test-results
 
       - name: Upload Toolbox (mltbx)
+        if: ${{ matrix.os == ubuntu-latest }}
         uses: actions/upload-artifact@v4
         with:
           name: Tool Validation Kit Toolbox
