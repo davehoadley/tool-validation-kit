@@ -1,6 +1,7 @@
 name: Generate Test and Coverage Artifacts on GitHub-Hosted Runner
 on: 
   push:
+  pull_request:
   workflow_dispatch:
   schedule:
     - cron:  '24 16 * * 2' # schedule a weekly build to keep caches warm
