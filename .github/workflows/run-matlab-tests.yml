@@ -43,8 +43,8 @@ jobs:
         with:
           test-results-junit: test-results/results.xml
           logging-level: detailed
-      - name: Upload Test Results 
+      - name: Upload Test Results for ${{ matrix.os }}
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: ${{ matrix.os }} Results
           path: test-results          
