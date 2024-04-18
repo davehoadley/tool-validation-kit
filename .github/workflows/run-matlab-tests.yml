@@ -6,9 +6,11 @@ on:
   schedule:
     - cron:  '24 16 * * 2' # schedule a weekly build to keep caches warm
 jobs:
-  my-job:
+  test-job:
     name: Run MATLAB Tests
-    runs-on: ubuntu-latest windows-latest macos-latest
+    strategy: 
+        matrix:
+          os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
