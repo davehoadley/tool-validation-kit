@@ -24,6 +24,12 @@ jobs:
             Image_Processing_Toolbox
             Statistics_and_Machine_Learning_Toolbox
             Deep_Learning_Toolbox_Model_for_Xception_Network
+            Deep_Learning_Toolbox_Model_for_ResNet-18_Network
+            Deep_Learning_Toolbox_Model_for_Inception-ResNet-v2_Network
+            Deep_Learning_Toolbox_Model_for_MobileNet-v2_Network
+            Deep_Learning_Toolbox_Model_for_ResNet-50_Network
+            Deep_Learning_Toolbox_Model_for_VGG-16_Network
+            Deep_Learning_Toolbox_Model_for_VGG-19_Network
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v2
         with:
