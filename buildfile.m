@@ -21,7 +21,7 @@ plan("toolbox").Dependencies = ["check" "test"];
 plan("toolbox").Inputs = plan.RootFolder;
 plan("toolbox").Outputs = "release/Tool Validation Kit.mltbx";
 
-plan.DefaultTasks = ["check" "test"];
+plan.DefaultTasks = "toolbox";
 end
 
 function toolboxTask(ctx)
