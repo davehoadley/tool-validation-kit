@@ -70,7 +70,12 @@ The **UnitTestFolder** contains pre-written collection of test cases for various
 - Signal Processing Toolbox :tm:
 - Statistics and Machine Learning Toolbox :tm:
 
+
+
 ## Getting Started
+
+** IMPORTANT NOTE **
+LFS is used to store some of the test inputs and expected results due to their size. Please set up LFS and run `git lfs checkout` after you clone.
 
 To get started using the TVK tool, please follow the steps below:
 

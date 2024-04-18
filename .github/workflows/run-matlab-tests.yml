@@ -1,10 +1,21 @@
 name: Generate Test and Coverage Artifacts on GitHub-Hosted Runner
-on: [push]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron:  '24 16 * * 2' # schedule a weekly build to keep caches warm
 jobs:
-  my-job:
+  test-job:
+    strategy: 
+        matrix:
+          os: [ubuntu-latest, windows-latest, macos-13, macos-14]
     name: Run MATLAB Tests and Generate Artifacts
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
+      - name: Support long paths
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: git config --system core.longpaths true      
       - name: Check out repository
         uses: actions/checkout@v4
         with:
@@ -12,9 +23,28 @@ jobs:
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
         with:
-          products: Deep_Learning_Toolbox Computer_Vision_Toolbox Signal_Processing_Toolbox Image_Processing_Toolbox Statistics_and_Machine_Learning_Toolbox
+          cache: true
+          products: |
+            Deep_Learning_Toolbox
+            Computer_Vision_Toolbox
+            Signal_Processing_Toolbox
+            Image_Processing_Toolbox
+            Statistics_and_Machine_Learning_Toolbox
+            MATLAB_Test
+            Deep_Learning_Toolbox_Model_for_Xception_Network
+            Deep_Learning_Toolbox_Model_for_ResNet-18_Network
+            Deep_Learning_Toolbox_Model_for_Inception-ResNet-v2_Network
+            Deep_Learning_Toolbox_Model_for_MobileNet-v2_Network
+            Deep_Learning_Toolbox_Model_for_ResNet-50_Network
+            Deep_Learning_Toolbox_Model_for_VGG-16_Network
+            Deep_Learning_Toolbox_Model_for_VGG-19_Network
       - name: Run tests and generate artifacts
         uses: matlab-actions/run-tests@v2
         with:
           test-results-junit: test-results/results.xml
           logging-level: detailed
+      - name: Upload Test Results for ${{ matrix.os }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }} Results
+          path: test-results          
