@@ -7,11 +7,15 @@ on:
     - cron:  '24 16 * * 2' # schedule a weekly build to keep caches warm
 jobs:
   test-job:
-    name: Run MATLAB Tests
     strategy: 
         matrix:
-          os: [ubuntu-latest, windows-latest, macos-latest]
+          os: [ubuntu-latest, windows-latest, macos-13, macos-14]
+    name: Run MATLAB Tests and Generate Artifacts
+    runs-on: ${{ matrix.os }}
     steps:
+      - name: Support long paths
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: git config --system core.longpaths true      
       - name: Check out repository
         uses: actions/checkout@v4
         with:
@@ -39,8 +43,8 @@ jobs:
         with:
           test-results-junit: test-results/results.xml
           logging-level: detailed
-      - name: Upload Test & coverage Results 
+      - name: Upload Test Results 
         uses: actions/upload-artifact@v4
         with:
-          name: test-and-coverage-results
+          name: test-results
           path: test-results          
