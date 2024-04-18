@@ -14,6 +14,10 @@ jobs:
     name: Run MATLAB Tests and Generate Artifacts
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Support longpaths
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: git config --system core.longpaths true
+        
       - name: Check out repository
         uses: actions/checkout@v4
         with:
