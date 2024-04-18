@@ -47,7 +47,7 @@ jobs:
           path: test-results
 
       - name: Upload Toolbox (mltbx)
-        if: ${{ matrix.os == ubuntu-latest }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: actions/upload-artifact@v4
         with:
           name: Tool Validation Kit Toolbox
