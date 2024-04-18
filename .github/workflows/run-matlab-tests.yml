@@ -45,5 +45,5 @@ jobs:
       - name: Upload Toolbox (mltbx)
         uses: actions/upload-artifact@v4
         with:
-          name: Tool Validation Kit.mltbx
+          name: Tool Validation Kit Toolbox
           path: release/Tool Validation Kit.mltbx
