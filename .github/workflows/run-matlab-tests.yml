@@ -30,8 +30,10 @@ jobs:
             Deep_Learning_Toolbox_Model_for_ResNet-50_Network
             Deep_Learning_Toolbox_Model_for_VGG-16_Network
             Deep_Learning_Toolbox_Model_for_VGG-19_Network
-      - name: Run tests and generate artifacts
-        uses: matlab-actions/run-tests@v2
+      - name: Run MATLAB build (currently code checks and tests)
+        uses: matlab-actions/run-build@v2
+      - name: Upload Test & coverage Results 
+        uses: actions/upload-artifact@v4
         with:
-          test-results-junit: test-results/results.xml
-          logging-level: detailed
+          name: test-and-coverage-results
+          path: test-results
