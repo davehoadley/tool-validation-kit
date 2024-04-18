@@ -23,6 +23,7 @@ jobs:
             Signal_Processing_Toolbox
             Image_Processing_Toolbox
             Statistics_and_Machine_Learning_Toolbox
+            MATLAB_Test
             Deep_Learning_Toolbox_Model_for_Xception_Network
             Deep_Learning_Toolbox_Model_for_ResNet-18_Network
             Deep_Learning_Toolbox_Model_for_Inception-ResNet-v2_Network
