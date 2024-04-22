@@ -1,5 +1,5 @@
 # MathWorks :registered: Tool Validation Kit Application
-
+[![MATLAB](https://github.com/dhoadley/tool-validation-kit/actions/workflows/run-matlab-tests.yml/badge.svg)]
 **Table of Contents**
 
 - [Tool Validation Kit Application](#tool-validation-kit-application)
