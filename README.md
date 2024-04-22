@@ -1,5 +1,5 @@
 # MathWorks :registered: Tool Validation Kit Application
-[![MATLAB](https://github.com/dhoadley/tool-validation-kit/actions/workflows/run-matlab-tests.yml/badge.svg)](https://github.com/dhoadley/tool-validation-kit/actions/workflows/run-matlab-tests.yml)
+[![MATLAB](https://github.com/davehoadley/tool-validation-kit/actions/workflows/run-matlab-tests.yml/badge.svg)](https://github.com/davehoadley/tool-validation-kit/actions/workflows/run-matlab-tests.yml)
 
 **Table of Contents**
 
