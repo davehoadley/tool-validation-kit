@@ -1,4 +1,4 @@
-name: Generate Test and Coverage Artifacts on GitHub-Hosted Runner
+name: MATLAB latest release
 on:
   push:
   pull_request:
