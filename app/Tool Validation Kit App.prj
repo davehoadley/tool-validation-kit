@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2466319537" file="C:\projects\tool-validation-kit\app\Tool Validation Kit App.prj" location="C:\projects\tool-validation-kit\app" name="Tool Validation Kit App" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3743345326" file="C:\projects\tool-validation-kit\app\Tool Validation Kit App.prj" location="C:\projects\tool-validation-kit\app" name="Tool Validation Kit App" target="target.mlapps" target-name="Package App">
     <param.appname>Tool Validation Kit App</param.appname>
     <param.authnamewatermark>MathWorks Consulting</param.authnamewatermark>
     <param.email />
@@ -13,24 +13,22 @@
     <param.summary />
     <param.description />
     <param.screenshot />
-    <param.version>1.0</param.version>
+    <param.version>4.2</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>${PROJECT_ROOT}</param.output>
+    <param.output>C:\projects\tool-validation-kit\release</param.output>
     <param.guid>22279144-5ed8-4032-b62b-bf792b595b21</param.guid>
     <unset>
       <param.email />
       <param.summary />
       <param.description />
       <param.screenshot />
-      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />
       <param.platforms />
-      <param.output />
     </unset>
     <fileset.main>
       <file>${PROJECT_ROOT}\runToolValidationKitApp.m</file>
@@ -55,7 +53,7 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\projects\tool-validation-kit" name="app" optional="false">C:\projects\tool-validation-kit\app</file>
+      <file location="C:\projects\tool-validation-kit" name="release" optional="false">C:\projects\tool-validation-kit\release</file>
     </build-deliverables>
     <workflow />
     <matlab>
