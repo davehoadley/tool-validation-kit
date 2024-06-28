@@ -43,11 +43,10 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
         
         function basicBehaviorRGB(testcase)
             
-            augmenter = imageDataAugmenter('RandRotation',[-20 20]);
+            augmenter = instrumentedImageDataAugmenter('RandRotation',[-20 20]);
             A = testcase.peppersImage;
             out = augment(augmenter,testcase.peppersImage);
-            
-            exp = imwarp(A,affine2d(augmenter.AffineTransforms),'OutputView',imref2d(size(A)));
+            exp = imwarp(A,affine2d(augmenter.getAffineTransform),'OutputView',imref2d(size(A)));
             
             % Use SSIM to give us some wiggle room re: resizing algorithm,
             % intermediate datatype, etc. We just want to know if the same
@@ -60,25 +59,16 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
         
         function basicBehaviorGrayscale(testcase)
             
-            augmenter = imageDataAugmenter('RandRotation',[-20 20],'RandXTranslation',[0 10]);
+            augmenter = instrumentedImageDataAugmenter('RandRotation',[-20 20],'RandXTranslation',[0 10]);
             
             A = testcase.cameramanImage;
             out = augment(augmenter,A);
             
-            rot = augmenter.Rotation;
-            xtrans = augmenter.XTranslation;
-            
-            testcase.verifyGreaterThanOrEqual(rot,-20);
-            testcase.verifyLessThanOrEqual(rot,20);
-            testcase.verifyGreaterThanOrEqual(xtrans,0);
-            testcase.verifyLessThanOrEqual(xtrans,10);
-            
-            exp = imwarp(A,affine2d(augmenter.AffineTransforms),'OutputView',imref2d(size(A)));
+            exp = imwarp(A,affine2d(augmenter.getAffineTransform()),'OutputView',imref2d(size(A)));
             
             ssimObserved = ssim(out,exp);
             
-            testcase.verifyGreaterThan(ssimObserved,0.9,'Incorrect augmentation for RGB rotation.');
-            
+            testcase.verifyGreaterThan(ssimObserved,0.9,'Incorrect augmentation for RGB rotation.');            
         end
         
         function testRotation(testcase)
@@ -152,27 +142,67 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
             
         end
         
-        function testReflection(testcase)
-            
+        function testXReflection(testcase)
+
+            import matlab.unittest.constraints.IsEqualTo;
+
             A = testcase.cameramanImage;
             augmenter = imageDataAugmenter('RandXReflection',true);
-            
-            rng(1);
-            act = augmenter.augment(A);
-            exp = fliplr(A);
-            
-            testcase.verifyTrue(isequal(act,exp),'Incorrect augmentation for X reflection.');
-            
+
+            % Every result should be either flipped or not.
+            Aflipped = fliplr(A);
+            con = IsEqualTo(A) | IsEqualTo(Aflipped);
+
+            % Use a fixed random sequence to ensure test repeatability.
+            orig = rng(1);
+            testcase.addTeardown(@rng, orig)
+
+            flipped = false(1,100);
+            for n = 1:100
+                act = augmenter.augment(A);
+                testcase.verifyThat(act, con, 'Incorrect augmentation for X reflection.');
+
+                flipped(n) = all(act==Aflipped, 'all');
+            end
+
+            % The number flipped ought to be close to the expected mean, 50.  The exact
+            % number is repeatable in this test due to the fixed seed, but may alter if
+            % the imageDataAugmenter changes how it samples from the random stream.  To
+            % allow for this we test that the flipping happens within the 2 sigma
+            % level.
+            testcase.verifyLessThanOrEqual(abs(sum(flipped)-50), 10, 'Incorrect augmentation for X reflection.');
+        end
+
+        function testYReflection(testcase)
+
+            import matlab.unittest.constraints.IsEqualTo;
+
+            A = testcase.cameramanImage;
             augmenter = imageDataAugmenter('RandYReflection',true);
             
-            rng(1);
-            act = augmenter.augment(A);
-            exp = flipud(A);
-            
-            testcase.verifyTrue(isequal(act,exp),'Incorrect augmentation for Y reflection.');
-            
+            Aflipped = flipud(A);
+            con = IsEqualTo(A) | IsEqualTo(Aflipped);
+
+            % Use a fixed random sequence to ensure test repeatability.
+            orig = rng(1);
+            testcase.addTeardown(@rng, orig)
+
+            flipped = false(1,100);
+            for n = 1:100
+                act = augmenter.augment(A);
+                testcase.verifyThat(act, con, 'Incorrect augmentation for Y reflection.');
+
+                flipped(n) = all(act==Aflipped, 'all');
+            end
+
+            % The number flipped ought to be close to the expected mean, 50.  The exact
+            % number is repeatable in this test due to the fixed seed, but may alter if
+            % the imageDataAugmenter changes how it samples from the random stream.  To
+            % allow for this we test that the flipping happens within the 2 sigma
+            % level.
+            testcase.verifyLessThanOrEqual(abs(sum(flipped)-50), 10, 'Incorrect augmentation for Y reflection.');
         end
-        
+
         function testShear(testcase)
             
             A = testcase.peppersImage;

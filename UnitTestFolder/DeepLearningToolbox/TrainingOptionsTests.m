@@ -41,7 +41,7 @@ classdef TrainingOptionsTests < matlab.unittest.TestCase
             % be thrown.
 
             invalidSolverName = 'NotARealSolverName';
-            errorID = 'nnet_cnn:trainingOptions:InvalidSolverName';
+            errorID = 'nnet_cnn:trainingOptions:InvalidTrainingOptions';
 
             try
                 trainingOptions(invalidSolverName);
