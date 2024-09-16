@@ -7,7 +7,7 @@
     <param.summary />
     <param.description />
     <param.screenshot />
-    <param.version>4.2.1</param.version>
+    <param.version>4.2.2</param.version>
     <param.output>${PROJECT_ROOT}\Tool Validation Kit.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -162,8 +162,7 @@ resources</param.exclude.filters>
       <file>C:\projects\TVKMain\toolvalidationkit\documents</file>
       <file>C:\projects\TVKMain\toolvalidationkit\icons</file>
       <file>C:\projects\TVKMain\toolvalidationkit\license.txt</file>
-      <file>C:\projects\TVKMain\toolvalidationkit\MATLAB_Tool_Validation_Report_20240304T152955.docx</file>
-      <file>C:\projects\TVKMain\toolvalidationkit\README.asv</file>
+      <file>C:\projects\TVKMain\toolvalidationkit\MATLAB_Tool_Validation_Report_20240325T163939.docx</file>
       <file>C:\projects\TVKMain\toolvalidationkit\release</file>
       <file>C:\projects\TVKMain\toolvalidationkit\SECURITY.md</file>
       <file>C:\projects\TVKMain\toolvalidationkit\source</file>
@@ -176,7 +175,7 @@ resources</param.exclude.filters>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2024a</root>
+      <root>C:\Program Files\MATLAB\R2024b</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />

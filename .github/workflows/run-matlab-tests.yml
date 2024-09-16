@@ -1,4 +1,4 @@
-name: MATLAB matrix tests
+name: Generate Test and Coverage Artifacts on GitHub-Hosted Runner
 on:
   push:
   pull_request:
@@ -6,11 +6,11 @@ on:
   schedule:
     - cron:  '24 16 * * 2' # schedule a weekly build to keep caches warm
 jobs:
-  test-job:
+  my-job:
     strategy: 
         matrix:
           os: [ubuntu-latest, windows-latest, macos-13, macos-14]
-    name: Run MATLAB Tests and Generate Artifacts
+    name: Build Toolbox
     runs-on: ${{ matrix.os }}
     steps:
       - name: Support long paths
@@ -24,6 +24,7 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           cache: true
+          release: R2024b
           products: |
             Deep_Learning_Toolbox
             Computer_Vision_Toolbox
@@ -38,13 +39,29 @@ jobs:
             Deep_Learning_Toolbox_Model_for_ResNet-50_Network
             Deep_Learning_Toolbox_Model_for_VGG-16_Network
             Deep_Learning_Toolbox_Model_for_VGG-19_Network
-      - name: Run tests and generate artifacts
-        uses: matlab-actions/run-tests@v2
-        with:
-          test-results-junit: test-results/results.xml
-          logging-level: detailed
-      - name: Upload Test Results for ${{ matrix.os }}
+      - name: Run MATLAB build
+        uses: matlab-actions/run-build@v2
+      - name: Upload Test and Coverage Results
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }} Results
           path: test-results          
+      - name: Upload Code Analysis Results
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Results
+          path: analysis-results          
+      - name: Upload Toolbox (mltbx)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tool Validation Kit
+          path: release/Tool Validation Kit.mltbx
+      - name: Upload App (mlapp)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tool Validation Kit
+          path: release/Tool Validation Kit App.mlappinstall
+          

@@ -39,7 +39,7 @@ classdef TVKBase < handle
         EnableCustomReportGen (1,1) logical = true
 
         % Generated report file name
-        ReportFile (1,1) string = "MATLAB_Tool_Validation_Report_" + datestr(datetime,30) + ".docx"
+        ReportFile (1,1) string = "MATLAB_Tool_Validation_Report_" + string(datetime("Now",Format="yyyyMMddHHmmss")) + ".docx"
 
         % Result folder location
         ResultsFolder (1,1) string = ""

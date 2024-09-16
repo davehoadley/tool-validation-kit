@@ -22,7 +22,7 @@ calldir = fileparts(mfilename('fullpath'));
 rootDir = fullfile(calldir, "..", "..", "..");
 tp.Image = fullfile(rootDir, "icons", "logopic.png");
 tp.Author = 'MathWorks';
-tp.PubDate = date();
+tp.PubDate = string(datetime);
 add(rpt,tp);
 
 %% Insert signatures table
@@ -175,7 +175,6 @@ for pp = 1:numel(uniqueparent)
             end
         end
         
-        figdetails = [];
         figdetails = result.Details{idx}.DiagnosticRecord(string({result.Details{idx}.DiagnosticRecord.Event})=='DiagnosticLogged');
         if ~isempty(figdetails)
             for fidx = 1:numel(figdetails)
@@ -187,7 +186,6 @@ for pp = 1:numel(uniqueparent)
         
         didx = find(intest);
         for dd = 1:nnz(intest)
-            body = {};
             thisdiag = result(didx(dd),:);
             
             if ~isempty(thisdiag.TestDiagnostic{1})% && ischar(thisdiag.TestDiagnostic{1})  
@@ -422,7 +420,7 @@ mlver = Text('MATLAB Version:');
 mlver.Style = {HAlign('right')};
 mlver.Bold = true;
 
-tbcontent = {timestamp,Text(datestr(datetime));...
+tbcontent = {timestamp,Text(char(datetime));...
     hostname,Text(getenv('COMPUTERNAME'));...
     platform,Text(computer);...
     mlver,Text(version)};
