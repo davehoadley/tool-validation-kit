@@ -21,19 +21,11 @@ plan("test") = TestTask(...
         ["test-results/coverage.xml", "test-results/coverage-report/index.html"], ...
         MetricLevel="mcdc");
 
-plan("app").Dependencies = [];
-plan("app").Inputs = plan.RootFolder;
-plan("app").Outputs = "release/Tool Validation Kit App.mlappinstall";
-
-plan("toolbox").Dependencies = ["check" "test" "app"];
+plan("toolbox").Dependencies = ["check" "test"];
 plan("toolbox").Inputs = plan.RootFolder;
 plan("toolbox").Outputs = "release/Tool Validation Kit.mltbx";
 
 plan.DefaultTasks = "toolbox";
-end
-
-function appTask(ctx)
-matlab.apputil.package(fullfile(ctx.Plan.RootFolder, "app", "Tool Validation Kit App.prj"));
 end
 
 function toolboxTask(ctx)
