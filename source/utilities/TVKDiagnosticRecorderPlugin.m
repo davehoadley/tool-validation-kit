@@ -122,6 +122,14 @@ classdef TVKDiagnosticRecorderPlugin < matlab.unittest.plugins.TestRunnerPlugin
                 s.CeilingValue = [];
                 s.FloorValue = [];
 
+            else
+                s.Stack = eventData.Stack;
+                s.Timestamp = datetime;
+                s.ActualValue = eventData.ActualValue;
+                s.ExpectedValue = [];
+                s.Tolerance = [];
+                s.CeilingValue = [];
+                s.FloorValue = [];
             end
             
             plugin.TestData = [plugin.TestData; s];

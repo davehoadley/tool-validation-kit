@@ -98,11 +98,8 @@ classdef UnetTests < matlab.unittest.TestCase
             for i=1:length(idxConvLayer)
                 paddingModes{i} = unet1.Layers(idxConvLayer(i)).PaddingMode;
             end
-            if strcmp(padding, "valid")
-                test.verifyEqual(paddingModes,repmat({'manual'},[1,i]));
-            else
-                test.verifyEqual(paddingModes,repmat({padding},[1,i]));
-            end
+
+            test.verifyEqual(paddingModes,repmat({padding},[1,i]));
         end
 
         function verifyEncoderAndDecoderSections(test)
@@ -110,10 +107,10 @@ classdef UnetTests < matlab.unittest.TestCase
             % of Encoder and Decoder sections.
 
             encoderDepth = 4;
-            unet = unetLayers([96 96], 2, 'EncoderDepth', encoderDepth);
+            unet1 = unetLayers([96 96], 2, 'EncoderDepth', encoderDepth);
 
             % Get the names of the layers.
-            layerNames = {unet.Layers(:).Name};
+            layerNames = {unet1.Layers(:).Name};
 
             encDecFlag = false([1 encoderDepth]);
 
@@ -143,7 +140,7 @@ classdef UnetTests < matlab.unittest.TestCase
             % Testpoint to verify same number of channels for last
             % convolution layer of each encoder and decoder section.
             numFirstEncoderFilters = 128;
-            unet = unetLayers([96 96], 2, 'NumFirstEncoderFilters', ...
+            unet1 = unetLayers([96 96], 2, 'NumFirstEncoderFilters', ...
                 numFirstEncoderFilters);
 
             encoderLevel = 1;
@@ -152,19 +149,19 @@ classdef UnetTests < matlab.unittest.TestCase
             encoderChannel = [];
             decoderChannel = [];
 
-            for i = 1:length(unet.Layers)
+            for i = 1:length(unet1.Layers)
 
-                if contains(unet.Layers(i).Name, ['Encoder-Stage-' ...
+                if contains(unet1.Layers(i).Name, ['Encoder-Stage-' ...
                         num2str(encoderLevel) '-Conv-2'])
                     encoderChannel = [encoderChannel ...
-                        unet.Layers(i).NumChannels];
+                        unet1.Layers(i).NumChannels];
 
                     encoderLevel = encoderLevel+1;
                 end
 
-                if contains(unet.Layers(i).Name, ['Decoder-Stage-' ...
+                if contains(unet1.Layers(i).Name, ['Decoder-Stage-' ...
                         num2str(decoderLevel) '-Conv-2'])
-                    decoderChannel = [unet.Layers(i).NumChannels...
+                    decoderChannel = [unet1.Layers(i).NumChannels...
                         decoderChannel];
 
                     decoderLevel = decoderLevel+1;
@@ -180,14 +177,14 @@ classdef UnetTests < matlab.unittest.TestCase
             encoderDepth = 1;
             numFirstEncoderFilters = 32;
             padding = 'valid';
-            unet = unetLayers([100 100 3], 3, 'EncoderDepth', ...
+            unet1 = unetLayers([100 100 3], 3, 'EncoderDepth', ...
                 encoderDepth, 'FilterSize', filterSize, ...
                 'NumFirstEncoderFilters', numFirstEncoderFilters, ...
                 'ConvolutionPadding', padding);
             decoderLevel = 1;
             numCrop2dLayers = 0;
-            for i = 1:length(unet.Layers)
-                if contains(unet.Layers(i).Name, ...
+            for i = 1:length(unet1.Layers)
+                if contains(unet1.Layers(i).Name, ...
                         ['Crop2d-' num2str(decoderLevel)])
                     decoderLevel = decoderLevel+1;
                     numCrop2dLayers = numCrop2dLayers + 1;
@@ -201,7 +198,7 @@ classdef UnetTests < matlab.unittest.TestCase
 
             flag = true;
             try
-                unet = unetLayers(InputSize, 4,...
+                unet1 = unetLayers(InputSize, 4,...
                     'EncoderDepth', EncoderDepth, ...
                     'NumFirstEncoderFilters', ...
                     NumFirstEncoderFilters, 'FilterSize', FilterSize); %#ok<NASGU> 

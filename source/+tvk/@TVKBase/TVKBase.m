@@ -39,7 +39,7 @@ classdef TVKBase < handle
         EnableCustomReportGen (1,1) logical = true
 
         % Generated report file name
-        ReportFile (1,1) string = "MATLAB_Tool_Validation_Report_" + datestr(datetime,30) + ".docx"
+        ReportFile (1,1) string = "MATLAB_Tool_Validation_Report_" + string(datetime("Now",Format="yyyyMMddHHmmss")) + ".docx"
 
         % Result folder location
         ResultsFolder (1,1) string = ""
@@ -147,7 +147,7 @@ classdef TVKBase < handle
                     runner.addPlugin(obj.i_DiagnosticPlugin);
                     runner.addPlugin(DiagnosticsRecordingPlugin(...
                         'IncludingPassingDiagnostics',true,...
-                        'Verbosity',4));
+                        'OutputDetail',4,'LoggingLevel',4));
                 else
                     plugin = TestReportPlugin.producingDOCX(fullfile(obj.ResultsFolder, obj.ReportFile),...
                         'IncludingPassingDiagnostics',true, ...
