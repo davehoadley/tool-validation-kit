@@ -200,7 +200,8 @@ for pp = 1:numel(uniqueparent)
             
             if ~isempty(diagrec)
                 txt = splitlines(diagrec{dd}.FrameworkDiagnosticResults.DiagnosticText);
-                txt = txt(1:find(contains(txt,'Actual'))-1);
+                indices = find(contains(txt,'Actual'));
+                txt = txt(1:indices(1)-1);
                 str = join(txt,newline);
                 diagcontent = Text(sprintf(str{:}));
                 diagcontent.FontFamilyName = 'Courier New';
