@@ -200,8 +200,13 @@ for pp = 1:numel(uniqueparent)
             
             if ~isempty(diagrec)
                 txt = splitlines(diagrec{dd}.FrameworkDiagnosticResults.DiagnosticText);
-                txt = txt(1:find(contains(txt,'Actual'))-1);
-                str = join(txt,newline);
+                indices = find(contains(txt,'Actual'));
+                if ~isempty(indices)
+                    txt = txt(1:indices(1)-1);
+                    str = join(txt,newline);
+                else
+                    str = {''};
+                end
                 diagcontent = Text(sprintf(str{:}));
                 diagcontent.FontFamilyName = 'Courier New';
                 diagcontent.WhiteSpace = 'preserve';
@@ -326,13 +331,21 @@ for pp = 1:numel(uniqueparent)
                 end
             end
             
-            if ~isempty(thisdiag.CeilingValue{:})
+            if isnumeric(thisdiag.CeilingValue) || ~isempty(thisdiag.CeilingValue{:})
                 tolvar = 'UpperBound';
-                tolval = thisdiag.CeilingValue{:};
-            elseif ~isempty(thisdiag.FloorValue{:})
+                if isnumeric(thisdiag.CeilingValue)
+                    tolval = thisdiag.CeilingValue;
+                else
+                    tolval = thisdiag.CeilingValue{:};
+                end
+            elseif isnumeric(thisdiag.FloorValue) || ~isempty(thisdiag.FloorValue{:})
                 tolvar = 'LowerBound';
-                tolval = thisdiag.FloorValue{:};
-            elseif ~isempty(thisdiag.Tolerance(:))
+                if isnumeric(thisdiag.FloorValue)
+                    tolval = thisdiag.FloorValue;
+                else
+                    tolval = thisdiag.FloorValue{:};
+                end
+            elseif isnumeric(thisdiag.Tolerance) || ~isempty(thisdiag.Tolerance(:))
                 tolvar = thisdiag.Tolerance;
                 while isa(tolvar,'cell')
                     tolvar = tolvar{:};
