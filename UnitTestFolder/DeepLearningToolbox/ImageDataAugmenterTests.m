@@ -151,17 +151,16 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
 
             % Every result should be either flipped or not.
             Aflipped = fliplr(A);
-            con = IsEqualTo(A) | IsEqualTo(Aflipped);
 
             % Use a fixed random sequence to ensure test repeatability.
             orig = rng(1);
             testcase.addTeardown(@rng, orig)
 
             flipped = false(1,100);
+            correct = false(1,100);
             for n = 1:100
                 act = augmenter.augment(A);
-                testcase.verifyThat(act, con, 'Incorrect augmentation for X reflection.');
-
+                correct(n) = isequal(act,A) || isequal(act,Aflipped);
                 flipped(n) = all(act==Aflipped, 'all');
             end
 
@@ -170,6 +169,7 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
             % the imageDataAugmenter changes how it samples from the random stream.  To
             % allow for this we test that the flipping happens within the 2 sigma
             % level.
+            testcase.verifyTrue(all(correct), 'Incorrect augmentation for X reflection.');
             testcase.verifyLessThanOrEqual(abs(sum(flipped)-50), 10, 'Incorrect augmentation for X reflection.');
         end
 
@@ -181,17 +181,16 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
             augmenter = imageDataAugmenter('RandYReflection',true);
             
             Aflipped = flipud(A);
-            con = IsEqualTo(A) | IsEqualTo(Aflipped);
 
             % Use a fixed random sequence to ensure test repeatability.
             orig = rng(1);
             testcase.addTeardown(@rng, orig)
 
             flipped = false(1,100);
+            correct = false(1,100);
             for n = 1:100
                 act = augmenter.augment(A);
-                testcase.verifyThat(act, con, 'Incorrect augmentation for Y reflection.');
-
+                correct(n) = isequal(act,A) || isequal(act,Aflipped);
                 flipped(n) = all(act==Aflipped, 'all');
             end
 
@@ -200,6 +199,7 @@ classdef ImageDataAugmenterTests < matlab.unittest.TestCase
             % the imageDataAugmenter changes how it samples from the random stream.  To
             % allow for this we test that the flipping happens within the 2 sigma
             % level.
+            testcase.verifyTrue(all(correct), 'Incorrect augmentation for Y reflection.');
             testcase.verifyLessThanOrEqual(abs(sum(flipped)-50), 10, 'Incorrect augmentation for Y reflection.');
         end
 
