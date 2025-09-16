@@ -30,3 +30,13 @@ resources
 **/.svn/**/*
 **/.buildtool/**/*
 **/*.asv
+test-results
+test-results/**/*
+derived
+derived/**/*
+.github/*
+.git*
+.github
+.buildtool
+analysis-results
+analysis-results/*
