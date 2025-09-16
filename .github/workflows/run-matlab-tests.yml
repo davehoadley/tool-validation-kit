@@ -57,5 +57,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Tool Validation Kit
-          path: release/Tool Validation Kit App.mltbx
+          path: release/Tool Validation Kit.mltbx
           
