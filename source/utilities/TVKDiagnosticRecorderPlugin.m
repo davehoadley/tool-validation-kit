@@ -122,6 +122,61 @@ classdef TVKDiagnosticRecorderPlugin < matlab.unittest.plugins.TestRunnerPlugin
                 s.CeilingValue = [];
                 s.FloorValue = [];
 
+            elseif isprop(eventData,'Constraint')
+                s.Stack = eventData.Stack;
+                s.Timestamp = datetime;
+                s.ActualValue = eventData.ActualValue;
+                constraintClass = string(class(eventData.Constraint));
+    
+                s.ExpectedValue = [];
+                s.Tolerance = [];
+                s.CeilingValue = [];
+                s.FloorValue = [];
+    
+                switch constraintClass
+    
+                    case "matlab.unittest.constraints.IsEqualTo"
+                        s.ExpectedValue = eventData.Constraint.Expected;
+                        s.Tolerance = eventData.Constraint.Tolerance;
+    
+                    case {"matlab.unittest.constraints.IsLessThan", "matlab.unittest.constraints.IsLessThanOrEqualTo"}
+                        s.CeilingValue = eventData.Constraint.CeilingValue;
+    
+                    case {"matlab.unittest.constraints.IsGreaterThan", "matlab.unittest.constraints.IsGreaterThanOrEqualTo"}
+                        s.FloorValue = eventData.Constraint.FloorValue;
+    
+                    case "matlab.unittest.constraints.IsTrue"
+                        s.ExpectedValue = 1;
+                    
+                    case "matlab.unittest.constraints.IsFalse"
+                        s.ExpectedValue = 0;
+    
+                    case "matlab.unittest.constraints.IsOfClass"
+                        s.ActualValue = class(eventData.ActualValue);
+                        s.ExpectedValue = eventData.Constraint.Class;
+    
+                    case "matlab.unittest.constraints.HasSize"
+                        s.ActualValue = size(eventData.ActualValue);
+                        s.ExpectedValue = eventData.Constraint.Size;
+    
+                    case "matlab.unittest.constraints.IssuesNoWarnings"
+                        if s.Type == "PASSED"
+                            s.ActualValue = func2str(eventData.ActualValue) + " issued no warnings.";
+                        else
+                            s.ActualValue = func2str(eventData.ActualValue) + " issued warnings.";
+                        end
+    
+                        s.ExpectedValue = func2str(eventData.ActualValue) + " issued no warnings.";
+    
+                    case "matlab.unittest.constraints.Throws"
+                        try
+                            eventData.ActualValue()
+                        catch ME
+                            s.ActualValue = ME.identifier;
+                        end
+                        s.ExpectedValue = eventData.Constraint.ExpectedException;
+    
+                end %switch
             else
                 s.Stack = eventData.Stack;
                 s.Timestamp = datetime;

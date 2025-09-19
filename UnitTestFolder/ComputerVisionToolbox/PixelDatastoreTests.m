@@ -134,15 +134,48 @@ classdef PixelDatastoreTests < matlab.unittest.TestCase
             [data,info] = read(dataStore);
             [dataPart,infoPart] = read(dsnew);
             
-            test.verifyEqual(data,dataPart,'Data from partitioned datastore not equal to original datastore');
-            test.verifyEqual(info,infoPart,'Info from partitioned datastore not equal to original datastore');
+            % serialize the data for report generation simplicity
+            dataIn = data.inputImage;
+            dataPartIn = data.inputImage;
+            dataPixelLabelImage = data.pixelLabelImage;
+            dataPartPixelLabelImage = dataPart.pixelLabelImage;
+
+            if any(size(dataIn) ~= size(dataPartIn)) || any(size(dataPixelLabelImage) ~= size(dataPartPixelLabelImage))
+                test.verifyEqual(data,dataPart,'Data sizes from partitioned datastore not equal to original datastore');
+            else
+                test.verifyEqual(info,infoPart,'Info from partitioned datastore not equal to original datastore');
+                for idx = 1:numel(dataIn)
+                    dataIn{idx} = dataIn{idx}(:);
+                    dataPartIn{idx} = dataPartIn{idx}(:);
+                    test.verifyEqual(dataIn{idx},dataPartIn{idx},'input Images from partitioned datastore not equal to original datastore');
+                    dataPixelLabelImage{idx} = dataPixelLabelImage{idx}(:);
+                    dataPartPixelLabelImage{idx} = dataPartPixelLabelImage{idx}(:);
+                    test.verifyEqual(dataPixelLabelImage{idx}, dataPartPixelLabelImage{idx}, 'Pixel label images from partitioned datastore not equal to original datastore');
+                end
+            end
             
             % second next call should match as well
             [data, info] = read(dataStore);
             [dataPart, infoPart] = read(dsnew);
             
-            test.verifyEqual(data,dataPart,'Data from partitioned datastore not equal to original datastore');
-            test.verifyEqual(info,infoPart,'Info from partitioned datastore not equal to original datastore');
+            dataIn = data.inputImage;
+            dataPartIn = data.inputImage;
+            dataPixelLabelImage = data.pixelLabelImage;
+            dataPartPixelLabelImage = dataPart.pixelLabelImage;
+
+            if any(size(dataIn) ~= size(dataPartIn)) || any(size(dataPixelLabelImage) ~= size(dataPartPixelLabelImage))
+                test.verifyEqual(data,dataPart,'Data sizes from partitioned datastore not equal to original datastore');
+            else
+                test.verifyEqual(info,infoPart,'Info from partitioned datastore not equal to original datastore');
+                for idx = 1:numel(dataIn)
+                    dataIn{idx} = dataIn{idx}(:);
+                    dataPartIn{idx} = dataPartIn{idx}(:);
+                    test.verifyEqual(dataIn{idx},dataPartIn{idx},'input Images from partitioned datastore not equal to original datastore');
+                    dataPixelLabelImage{idx} = dataPixelLabelImage{idx}(:);
+                    dataPartPixelLabelImage{idx} = dataPartPixelLabelImage{idx}(:);
+                    test.verifyEqual(dataPixelLabelImage{idx}, dataPartPixelLabelImage{idx}, 'Pixel label images from partitioned datastore not equal to original datastore');
+                end
+            end
             
             % partitionByIndex should reset state
             while hasdata(dataStore)
