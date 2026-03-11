@@ -292,11 +292,11 @@ classdef FileIOTest < matlab.unittest.TestCase
             testCase.applyFixture(WorkingFolderFixture);
 
             imageExpFilePath = fullfile(fileparts(mfilename("fullpath")), "FileIO", "myGray.png");
+            imageRawDataFilePath = fullfile(fileparts(mfilename("fullpath")), "FileIO", "myGray.mat");
+            context = load(imageRawDataFilePath);
             expVal = imread(imageExpFilePath);
 
-            rng(0)
-            A = rand(50);
-            imwrite(A,'myGray.png')
+            imwrite(context.A,'myGray.png')
 
             actVal = imread("myGray.png");
 
