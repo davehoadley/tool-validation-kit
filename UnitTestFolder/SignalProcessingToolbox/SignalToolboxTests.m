@@ -236,15 +236,15 @@ classdef SignalToolboxTests < matlab.unittest.TestCase
             Description = {'The group delay of a linear FIR filter is constant and equal to half the';
                           'filter order.';
                           ' ';
-                          'Design a 70th order FIR lowpass filter and compute it''s group delay. Plot';
+                          'Design a 69th order FIR lowpass filter and compute it''s group delay. Plot';
                           'the group delay and get its mean and std to show that it is constant and';
-                          'equal to 35.'};
+                          'equal to 34.5.'};
             
             SignalToolboxTests.printValidationmessage(testCase,{'grpdelay','filtord'},Description);
                       
             import matlab.unittest.diagnostics.FunctionHandleDiagnostic
             
-            b = fir1(70,0.2);
+            b = fir1(69,0.2);
             gd = grpdelay(b,1);
             
             expectedGd = filtord(b)/2;

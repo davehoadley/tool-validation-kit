@@ -52,6 +52,7 @@ classdef TVKDiagnosticRecorderPlugin < matlab.unittest.plugins.TestRunnerPlugin
                     plugin.Fig = gcf;
                     clf(plugin.Fig,'reset');
                     eventData.TestDiagnostic();
+                    plugin.Fig = gcf;
                     testCase.log(4,FigureDiagnostic(plugin.Fig,'Formats',{'png'},'Prefix','Figure_'));
                 else
                     s.TestDiagnostic = eventData.TestDiagnostic;

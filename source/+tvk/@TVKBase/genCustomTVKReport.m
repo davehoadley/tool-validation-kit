@@ -179,7 +179,8 @@ for pp = 1:numel(uniqueparent)
         if ~isempty(figdetails)
             for fidx = 1:numel(figdetails)
                 imgObj = FormalImage(char(figdetails(fidx).LoggedDiagnosticResults.Artifacts.FullPath));
-                imgObj.Width = '4in';
+                imgObj.Width = '6in';
+                imgObj.Height = '3in';
                 add(sec,imgObj)
             end
         end
